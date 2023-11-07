@@ -36,11 +36,9 @@ It's up to you to decide what your quiz should be about! Maybe you want to test 
 
 ## Getting started 🤓
 
-In this project setup, we've provided the state management approach for your quiz game: Redux. Your task is to collaborate as a team and utilize these state management techniques to render the quiz questions sequentially. Each question should display the question text and its associated options. Upon selecting an answer, the application should indicate whether the chosen answer is correct or incorrect, and then guide the user to the subsequent question.
+In the repo, we've defined a Redux store and a reducer with a few actions you can use to control your quiz. You need to work as a team to use the state to render the quiz questions one at a time. When rendering a question, you should render the question itself and also the possible answers. The user then clicks an answer, and you should show if it is correct or not before letting the user continue on to the next question.
 
-- The starting point for the Redux approach is the `./src/components/CurrentQuestion.jsx` component. This component retrieves the current question from the Redux store and renders it.
-
-Your main objective is to ensure a smooth quiz experience for the user by rendering the questions, presenting the possible answers, and providing feedback on the user's selection before progressing to the next question. For this project, you should commit to just one to maintain clarity and consistency in your codebase.
+We've connected the redux dots and set up a store from the reducer and passed the store into a `Provider` in `./src/App.jsx`. We've also created a starting point for you - a component which selects the current question from the store and renders the question, in `./src/components/CurrentQuestion.jsx`.
 
 ## Planning
 
@@ -55,6 +53,59 @@ Your main objective is to ensure a smooth quiz experience for the user by render
 - What components do you need?
 - How are you dealing with the styling?
 - What stretch goals are you aiming for?
+
+## **The questions array**
+
+You can find the `quiz` store in `./src/reducers/quiz.js`. In it, there's a `questions` array with a couple of placeholder objects for you to get started with. You should replace these questions with your own ones.
+
+You're free to restructure things if you want to, but it's recommended to stick with the current setup where each question has:
+
+- `id` - a unique identifier for the question. You can just keep incrementing numbers for these.
+- `question` - this is the text which is displayed to the user for this question. The example questions use a string of text, but you could turn this into an object if you wanted to include images or other data.
+- `options` - an array of possible answers to the question which your user will choose from. Again, in the placeholder questions, we've used strings, but you can switch them to objects if you want to add additional details such as image urls.
+- `correctAnswerIndex` - the index of the item in the `options` array which is the correct answer.
+
+## **Redux actions**
+
+In the `quiz` store, there's a few actions made for you:
+
+### **`submitAnswer`**
+
+Use this action when a user selects an answer to the question. You need to pass an object with a key `questionId` whose value is valid question id (from the question objects) and an `answerIndex` which is the index of the answer they chose.
+
+Given the following question, for example:
+  
+        { id: 1, question: 'Who set the Olympic record for the 100m dash in 2012?', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0 }
+
+If the user clicks 'Asafa Powell' (index 3 in the options array), you'd dispatch the action to redux like this:
+
+        dispatch(quiz.actions.submitAnswer({ questionId: 1, answerIndex: 3 }))
+        
+
+The redux state will then update the answers array and tell you if this was the correct answer or not.
+
+### **`goToNextQuestion`**
+
+After the user clicks an answer and you show them if they were correct or not, you should show a button to continue to the next question. When they click that button, dispatch this action.
+
+        dispatch(quiz.actions.goToNextQuestion())
+        
+### **`restart`**
+
+At the end of the quiz, if you want to start over, you can dispatch this action.
+
+        dispatch(quiz.actions.restart())
+
+## **Selecting from the store**
+
+Use the redux dev tools in chrome to inspect the store and see what it contains. You can write your own selectors to fetch whatever you need from the store. We've given you one example in `./src/components/CurrentQuestion.jsx` to get you started with fetching the current question from the store:
+
+
+        const question = useSelector((state) => state.quiz.questions[state.quiz.currentQuestionIndex])
+
+You can build up these selector functions to use other information you have to fetch specific things. For example, you could fetch the answer to a question:
+
+        const answer = useSelector((state) => state.quiz.answers.find((a) => ( a.questionId === question.id // question could come from the previous selector in the last example)))
 
 
 ### Hints and tips to complete the project 🤓
