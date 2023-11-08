@@ -4,7 +4,7 @@
 
 This week, the task is to build a quiz game using `Redux` for state management. It's a multiple-choice quiz, so you'll need to define your own questions and a bunch of possible answers to present to your users.
 
-It's up to you to decide what your quiz should be about! Maybe you want to test your user's general knowledge with trivia questions? Additionally, as you design your quiz application, you'll need to make an important decision regarding state management. You can choose between using Redux or the Context API, each offering its own set of advantages and considerations. Ensure you research both options to determine which best suits your project's needs.
+It's up to you to decide what your quiz should be about! Maybe you want to test your user's general knowledge with trivia questions? Additionally, as you design your quiz application, you'll need to make an important decision regarding state management. Ensure you research both options to determine which best suits your project's needs.
 
 ## Requirements
 
