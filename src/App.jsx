@@ -1,20 +1,25 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { quiz } from './reducers/quiz';
+import { Provider, useSelector } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { quiz } from "./reducers/quiz";
+import { CurrentQuestion } from "./components/CurrentQuestion";
+import ResultScreen from "./components/ResultScreen";
 
-import { CurrentQuestion } from './components/CurrentQuestion';
-
-const reducer = combineReducers({
-  quiz: quiz.reducer
+const store = configureStore({
+  reducer: {
+    quiz: quiz.reducer,
+  },
 });
 
-const store = configureStore({ reducer });
+const QuizApp = () => {
+  const quizOver = useSelector((state) => state.quiz.quizOver);
+
+  return <div>{!quizOver ? <CurrentQuestion /> : <ResultScreen />}</div>;
+};
 
 export const App = () => {
   return (
     <Provider store={store}>
-      <CurrentQuestion />
+      <QuizApp />
     </Provider>
   );
-}
+};
