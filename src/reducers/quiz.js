@@ -1,19 +1,44 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Change these to your own questions!
 const questions = [
   {
     id: 1,
-    questionText: "Who set the Olympic record for the 100m dash in 2012?",
-    options: ["Usain Bolt", "Justin Gatlin", "Tyson Gay", "Asafa Powell"],
-    correctAnswerIndex: 0
+    questionText: "How many galaxies are there in the observable universe?",
+    options: ["100 Million", "200 Billion", "1 Billion", "10 Billion"],
+    correctAnswerIndex: 1,
+    explanation: "There are approximately 200 billion galaxies in the observable universe. This estimate is based on observations made by telescopes and other astronomical instruments. The observable universe refers to the portion of the universe that we can see from Earth, and it is constantly expanding as light from distant objects reaches us. The vast number of galaxies in the observable universe shows the immense scale and diversity of the cosmos."
   },
   {
     id: 2,
     questionText:
-      "When was Michael Phelps last named male World Swimmer of the Year?",
-    options: ["2012", "2014", "2016", "2018"],
-    correctAnswerIndex: 2
+      "What type of galaxy is our Milky Way?",
+    options: ["An elliptical galaxy", "An irregulary galaxy", "A spiral galaxy", "A round galaxy"],
+    correctAnswerIndex: 2,
+    explanation: "Our Milky Way is classified as a spiral galaxy. This classification is based on its shape, which resembles a flat disk with spiral arms extending from a central bulge. Spiral galaxies are characterized by their distinct spiral structure, containing young stars, gas, and dust in their arms. They also have a central bulge that contains older stars. The classification of the Milky Way as a spiral galaxy is supported by observations of its structure and the presence of spiral arms."
+  },
+  {
+    id: 3,
+    questionText:
+      "Which of these planets is the largest?",
+    options: ["Earth", "Mars", "Venus", "Jupiter"],
+    correctAnswerIndex: 3,
+    explanation: "Jupiter is the largest planet in our solar system. It has a diameter of about 143,000 kilometers, which is more than 11 times the diameter of Earth."
+  },
+  {
+    id: 4,
+    questionText:
+      "Does cold exist?",
+    options: ["Of course, what kind of question is this?", "No, cold is the absense of heat.", "Yes, we have two different temperatures.", "Maybe"],
+    correctAnswerIndex: 1,
+    explanation: "Temperature is a measure of how much energy the particles of a particular object has. An object with a higher temperature has particles with more energy than an object with a lower temperature. There is no such thing as cold because cold is really just an absence of heat or energy"
+  },
+  {
+    id: 5,
+    questionText:
+      "The coldest planet in our solar system is?",
+    options: ["Uranus", "Neptune", "Venus", "Mercury"],
+    correctAnswerIndex: 0,
+    explanation: "Uranus is the correct answer because it is the coldest planet in our solar system. It has a minimum temperature of -224 degrees Celsius (-371 degrees Fahrenheit), making it colder than Neptune, Venus, and all other planets in our solar system. Uranus' extreme coldness is due to its distance from the Sun and its unique composition, which includes a thick atmosphere of hydrogen and helium."
   }
 ];
 
