@@ -11,6 +11,9 @@ export const CurrentQuestion = () => {
   const question = useSelector(
     (state) => state.quiz.questions[currentQuestionIndex]
   );
+  const totalQuestions = useSelector(
+    (state) => state.quiz.questions.length
+  );
 
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
@@ -56,6 +59,9 @@ export const CurrentQuestion = () => {
     <div className="new-page">
       <div className="question-box">
         <h2>{question.questionText}</h2>
+        <p>
+          Question {currentQuestionIndex + 1} / {totalQuestions}
+        </p>
         {showFeedback && (
           <p>{isAnswerCorrect ? "Correct answer" : "Wrong answer"}</p>
         )}
