@@ -4,15 +4,36 @@ import { createSlice } from "@reduxjs/toolkit";
 const questions = [
   {
     id: 1,
-    questionText: "Who set the Olympic record for the 100m dash in 2012?",
-    options: ["Usain Bolt", "Justin Gatlin", "Tyson Gay", "Asafa Powell"],
-    correctAnswerIndex: 0
+    questionText: "What is the rarest blood type among humans?",
+    options: ["O-negative", "B-positive", "AB-negative", "O-positive"],
+    correctAnswerIndex: 2
   },
   {
     id: 2,
     questionText:
-      "When was Michael Phelps last named male World Swimmer of the Year?",
-    options: ["2012", "2014", "2016", "2018"],
+      "In what country did the first Starbucks open outside of North America?",
+    options: ["Japan", "Germany", "China", "UK"],
+    correctAnswerIndex: 0
+  },
+  {
+    id: 3,
+    questionText:
+      "Where was the first example of paper money used?",
+    options: ["Turkey", "Greece", "India", "China"],
+    correctAnswerIndex: 3
+  },
+  {
+    id: 4,
+    questionText:
+      "What city hosted the 2002 Olympic Games?",
+    options: ["Tokyo", "Sydney", "Beijing", "Athens"],
+    correctAnswerIndex: 1
+  },
+  {
+    id: 5,
+    questionText:
+      "Who is the world's biggest producer of oil?",
+    options: ["Saudi Arabia", "Canada", "United States", "Russia"],
     correctAnswerIndex: 2
   }
 ];
