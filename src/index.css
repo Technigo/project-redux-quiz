@@ -11,3 +11,79 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* CurrentQuestion Styles */
+
+/* Quiz Container */
+
+.quiz-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.quiz-question{
+  text-align: center;
+  font-size: 18px;
+  flex-wrap: wrap;
+  color: #fff;
+  background-color: #18183c;
+  margin: 0;
+  padding: 50px;
+  width: 80%;
+}
+
+/* Answers Div */
+
+.answers-container{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #18183c;
+  width: 80%;
+  align-items: center;
+  padding: 50px;
+  margin: 0;
+
+}
+
+.answers{
+  border-radius: 10px;
+  border: 2px solid #f7f7f7;
+  background-color: #bbbaba;
+  min-height: 40px;
+  color: #fff;
+  font-weight: 600;
+  width: 200px;
+}
+
+.answers:hover{
+  border-radius: 10px;
+  border: 2px solid greenyellow;
+  background-color: cadetblue;
+  color: #fff;
+}
+
+/* Quiz Img-Explanation */
+
+.flip-card-container{
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.explanation{
+  text-align: justify;
+}
+
+/* Quiz Buttons */
+.quiz-buttons-container{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 20px;
+  background-color: darkgrey;
+  padding: 25px 50px;
+  width: 80%;
+}
