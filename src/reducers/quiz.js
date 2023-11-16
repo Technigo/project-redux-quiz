@@ -4,24 +4,42 @@ import { createSlice } from "@reduxjs/toolkit";
 const questions = [
   {
     id: 1,
-    questionText: "Who set the Olympic record for the 100m dash in 2012?",
-    options: ["Usain Bolt", "Justin Gatlin", "Tyson Gay", "Asafa Powell"],
-    correctAnswerIndex: 0
+    questionText: "Who wrote and performed the hit song 'Bitch'",
+    options: ["Meredith Brooks", "Courtney Love", "Alanis Morisette"],
+    correctAnswerIndex: 0,
   },
   {
     id: 2,
+    questionText: "In what band was Bob Marley a member?",
+    options: ["Steel Pulse", "The Wailers", "The Maytals"],
+    correctAnswerIndex: 1,
+  },
+  {
+    id: 3,
+    questionText: "To what time signature do you usually dance a waltz?",
+    options: ["4/4", "3/4", "6/8"],
+    correctAnswerIndex: 1,
+  },
+  {
+    id: 4,
+    questionText: "Who originally recorded the song 'I will always love you'?",
+    options: ["Mariah Carey", "Whitney Houston", "Dolly Parton"],
+    correctAnswerIndex: 2,
+  },
+  {
+    id: 5,
     questionText:
-      "When was Michael Phelps last named male World Swimmer of the Year?",
-    options: ["2012", "2014", "2016", "2018"],
-    correctAnswerIndex: 2
-  }
+      "Dave Grohl of the Foo Fighters, was in what other notable ‘90s band? ?",
+    options: ["Nirvana", "Pearl Jam", "Green Day"],
+    correctAnswerIndex: 2,
+  },
 ];
 
 const initialState = {
   questions,
   answers: [],
   currentQuestionIndex: 0,
-  quizOver: false
+  quizOver: false,
 };
 
 export const quiz = createSlice({
@@ -64,7 +82,7 @@ export const quiz = createSlice({
         answerIndex,
         question,
         answer: question.options[answerIndex],
-        isCorrect: question.correctAnswerIndex === answerIndex
+        isCorrect: question.correctAnswerIndex === answerIndex,
       });
     },
 
@@ -92,6 +110,8 @@ export const quiz = createSlice({
      */
     restart: () => {
       return initialState;
-    }
-  }
+    },
+  },
 });
+
+export const { restart, goToNextQuestion, submitAnswer } = quiz.actions;
