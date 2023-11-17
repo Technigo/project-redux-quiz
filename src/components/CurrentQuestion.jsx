@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Options } from "./Options";
+import { Summary } from "./Summary";
 import { QuestionOne } from "./QuestionOne";
 import { restart, goToNextQuestion, submitAnswer } from "../reducers/quiz";
 
@@ -12,7 +13,8 @@ export const CurrentQuestion = () => {
   const question = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
   );
-  const isCorrect = useSelector((state) => state.quiz.answers);
+  const answersArray = useSelector((state) => state.quiz.answers);
+  const isCorrect = answersArray.map((obj) => console.log(obj.isCorrect));
   const quizOver = useSelector((state) => state.quiz.quizOver);
 
   const nextQuestion = () => {
@@ -45,17 +47,29 @@ export const CurrentQuestion = () => {
   }
 
   return (
-    <div>
-      <h1>Question: {question.questionText}</h1>
-      <p>question ID:{question.id}</p>
-      <p>answerIndex:{question.answerIndex}</p>
-      <p>answer:{question.answer}</p>
-      <p>qiuz over:{quizOver}</p>
+    <div className="quiz-container">
+      <div className="question">
+        <h1>{question.questionText}</h1>
+      </div>
 
-      {/*question.id === 1 &&*/ <QuestionOne />}
-
-      <button onClick={nextQuestion}>Next question please!</button>
-      <button onClick={restartQuiz}>Restart the quiz</button>
+      <div className="question-options">
+        {/*question.id === 1 &&*/ <QuestionOne />}
+      </div>
+      <div className="footer">
+        <button onClick={nextQuestion} className="next">
+          Next question please!
+        </button>
+        <button onClick={restartQuiz} className="restart">
+          Restart the quiz
+        </button>
+      </div>
+      <div>
+        {1 === 1 && <Summary />}
+        <p>question ID:{question.id}</p>
+        <p>answerIndex:{question.answerIndex}</p>
+        <p>answer:{question.answer}</p>
+        <p>qiuz over:{quizOver}</p>
+      </div>
     </div>
   );
 };
