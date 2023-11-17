@@ -12,11 +12,16 @@ export const CurrentQuestion = () => {
   }
 
   return (
-    <div>
-      <h1>
-        Question {quiz.currentQuestionIndex}/{quiz.questions.length}:{" "}
-        {question.questionText}
-      </h1>
+    <div className="currentQuestion">
+      <div className="questionIndex">
+        <h3>Question {quiz.currentQuestionIndex}/{quiz.questions.length}:{" "}</h3>
+      </div>
+      <div className="questionImage">
+        <img src={question.image}/>
+      </div>
+      <div className="questionText">
+        <h2>{question.questionText}</h2>
+      </div>
     </div>
   );
 };
