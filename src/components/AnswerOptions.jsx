@@ -11,11 +11,10 @@ export const AnswerOptions = () => {
 
   const dispatch = useDispatch();
 
-  // state to save selected answer
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-
-  // state for showing correct answer
-  const [showAnswer, setShowAnswer] = useState(false);
+  const [answer, setAnswer] = useState({
+    selected: null,
+    show: false
+  });
 
   // state to disable multiple choice buttons
   const [ isDisabled, setIsDisabled ] = useState(false);
@@ -28,13 +27,18 @@ export const AnswerOptions = () => {
 
   // function to save selected answer and hide color for correct/incorrect 
   const handleClick = (e) => {
-    setSelectedAnswer(parseInt(e.target.value));
-    setShowAnswer(false);
+    setAnswer({
+      selected: parseInt(e.target.value),
+      show: false
+    });
   };
 
   // function to show if answer is correct
   const handleCheck = () => {
-    setShowAnswer(true);
+    setAnswer({
+      ...answer,
+      show: true
+    });
     setIsDisabled(true);
   };
 
@@ -43,12 +47,14 @@ export const AnswerOptions = () => {
     dispatch(
       quiz.actions.submitAnswer({
         questionId: question.id,
-        answerIndex: selectedAnswer,
+        answerIndex: answer.selected,
       })
     );
     dispatch(quiz.actions.goToNextQuestion());
-    setShowAnswer(false);
-    setSelectedAnswer(null);
+    setAnswer({
+      selected: null,
+      show: false
+    });
     setIsDisabled(false);
   };
 
@@ -58,10 +64,10 @@ export const AnswerOptions = () => {
         <div key={index}>
           <button
             type="button"
-            className={showAnswer && question.correctAnswerIndex === index ? "correct multiChoice" : "multiChoice"}
+            className={answer.show && question.correctAnswerIndex === index ? "correct multiChoice" : "multiChoice"}
             name={option}
             value={index}
-            style={{ backgroundColor: selectedAnswer === index ? "pink" : null }}
+            style={{ backgroundColor: answer.selected === index ? "pink" : null }}
             onClick={handleClick}
             disabled={isDisabled ? true : false}
           >
@@ -69,8 +75,8 @@ export const AnswerOptions = () => {
           </button>
         </div>
       ))}
-      <button type="button" className="checkBtn" onClick={handleCheck}>Check Answer</button>
-      <button type="button" className="nextBtn" onClick={handleNext} disabled={selectedAnswer != null ? false : true }>Next</button>
+      <button type="button" className="checkBtn" onClick={handleCheck} disabled={answer.selected != null ? false : true }>Check Answer</button>
+      <button type="button" className="nextBtn" onClick={handleNext} disabled={answer.selected != null ? false : true }>Next</button>
     </div>
   );
 };

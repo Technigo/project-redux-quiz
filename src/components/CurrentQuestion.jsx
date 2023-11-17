@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import "./CurrentQuestion.css";
 
 export const CurrentQuestion = () => {
   const question = useSelector(
@@ -10,7 +11,7 @@ export const CurrentQuestion = () => {
   }
 
   return (
-    <div>
+    <div className="currentQuestion">
       <h1>Question: {question.questionText}</h1>
     </div>
   );
