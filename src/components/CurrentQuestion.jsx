@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Options } from "./Options";
+import { QuestionOne } from "./QuestionOne";
 import { restart, goToNextQuestion, submitAnswer } from "../reducers/quiz";
 
 export const CurrentQuestion = () => {
-  const [index, setIndex] = useState();
+  // const [index, setIndex] = useState();
 
   const dispatch = useDispatch();
 
   const question = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
   );
+  const isCorrect = useSelector((state) => state.quiz.answers);
+  const quizOver = useSelector((state) => state.quiz.quizOver);
 
   const nextQuestion = () => {
     dispatch(goToNextQuestion());
@@ -20,14 +23,21 @@ export const CurrentQuestion = () => {
     dispatch(restart());
   };
 
-  const clickButton = () => {
-    setIndex(index);
-    submit();
-  };
+  // const clickButton = () => {
+  //   setIndex(index);
+  //   submit();
+  // };
 
-  const submit = () => {
-    dispatch(submitAnswer({ questionId: question.id, answerIndex: 1 }));
-    console.log("submit", question.id, question.answerIndex);
+  const submit = (index) => {
+    dispatch(submitAnswer({ questionId: question.id, answerIndex: index }));
+    console.log(
+      "question ID:",
+      question.id,
+      ", answerIndex:",
+      question.answerIndex,
+      ", index:",
+      index
+    );
   };
 
   if (!question) {
@@ -38,16 +48,29 @@ export const CurrentQuestion = () => {
     <div>
       <h1>Question: {question.questionText}</h1>
       <p>question ID:{question.id}</p>
-      <div>
-        <button onClick={clickButton}>{question.options[0]}</button>
-        <button onClick={clickButton}>{question.options[1]}</button>
-        <button onClick={clickButton}>{question.options[2]}</button>
-      </div>
+      <p>answerIndex:{question.answerIndex}</p>
+      <p>answer:{question.answer}</p>
+      <p>qiuz over:{quizOver}</p>
+
+      {/*question.id === 1 &&*/ <QuestionOne />}
+
       <button onClick={nextQuestion}>Next question please!</button>
       <button onClick={restartQuiz}>Restart the quiz</button>
     </div>
   );
 };
+
+// <div>
+//   <div className="option-button">
+//     <button onClick={() => submit(0)}>{question.options[0]}</button>
+//   </div>
+//   <div className="option-button">
+//     <button onClick={() => submit(1)}>{question.options[1]}</button>
+//   </div>
+//   <div className="option-button">
+//     <button onClick={() => submit(2)}>{question.options[2]}</button>
+//   </div>
+// </div>
 
 // <Options />
 // <button onClick={nextQuestion}>Next question please!</button>
