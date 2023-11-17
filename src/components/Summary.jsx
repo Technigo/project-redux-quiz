@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import "./Summary.css";
 
 export const Summary = () => {
   const quiz = useSelector((state) => state.quiz);
@@ -6,17 +7,17 @@ export const Summary = () => {
   if (quiz.quizOver) {
     console.log(quiz.answers);
     return (
-      <div>
+      <div className="Summary">
         <h1>Summary</h1>
         <ol>
           {quiz.answers.map((answer, index) => (
             <li key={index}>
-              <h3>{answer.question.questionText}</h3>
+              <h4>{answer.question.questionText}</h4>
               <p>
-                {answer.answer}
+                Answer: {answer.answer} -{" "}
                 {answer.isCorrect
                   ? "Correct!"
-                  : `Wrong! Correct answer is ${
+                  : `Wrong! The correct answer is ${
                       answer.question.options[
                         answer.question.correctAnswerIndex
                       ]

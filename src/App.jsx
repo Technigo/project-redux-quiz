@@ -1,26 +1,25 @@
 import React from "react";
-import { Provider } from "react-redux";
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { quiz } from "./reducers/quiz";
+import { useSelector } from "react-redux";
 
 import { CurrentQuestion } from "./components/CurrentQuestion";
 import { AnswerOptions } from "./components/AnswerOptions";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import Summary from "./components/Summary";
 
-const reducer = combineReducers({
-  quiz: quiz.reducer,
-});
-
-const store = configureStore({ reducer });
-
 export const App = () => {
+  const quiz = useSelector((state) => state.quiz);
+
   return (
-    <Provider store={store}>
-      <CurrentQuestion />
-      <AnswerOptions />
+    <>
       <ProgressBar />
-      <Summary />
-    </Provider>
+      {quiz.quizOver ? (
+        <Summary />
+      ) : (
+        <>
+          <CurrentQuestion />
+          <AnswerOptions />
+        </>
+      )}
+    </>
   );
 };
