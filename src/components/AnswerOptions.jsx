@@ -12,7 +12,7 @@ export const AnswerOptions = () => {
   const dispatch = useDispatch();
 
   // state to save selected answer
-  const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   // state for showing correct answer
   const [showAnswer, setShowAnswer] = useState(false);
@@ -25,7 +25,8 @@ export const AnswerOptions = () => {
 
   // function to save selected answer and clear correct/incorrect message
   const handleClick = (e) => {
-    setSelectedAnswer(e.target.value);
+    setSelectedAnswer(parseInt(e.target.value));
+    setShowAnswer(false);
   };
 
   // function to show if answer is correct
@@ -43,6 +44,7 @@ export const AnswerOptions = () => {
     );
     dispatch(quiz.actions.goToNextQuestion());
     setShowAnswer(false);
+    setSelectedAnswer(null);
   };
 
   return (
@@ -53,8 +55,8 @@ export const AnswerOptions = () => {
             type="button"
             className={showAnswer && question.correctAnswerIndex === index ? "correct multiChoice" : "multiChoice"}
             name={option}
-            value={option}
-            style={{ backgroundColor: selectedAnswer === option ? "pink" : null }}
+            value={index}
+            style={{ backgroundColor: selectedAnswer === index ? "pink" : null }}
             onClick={handleClick}
           >
             {letters[index]}{option}
