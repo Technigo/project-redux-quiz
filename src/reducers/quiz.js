@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const questions = [
   {
     id: 1,
-    questionText: "Who wrote and performed the hit song 'Bitch'",
+    questionText: 'Who wrote and performed the hit song "Bitch"',
     options: ["Meredith Brooks", "Courtney Love", "Alanis Morisette"],
     correctAnswerIndex: 0,
   },
@@ -22,14 +22,14 @@ const questions = [
   },
   {
     id: 4,
-    questionText: "Who originally recorded the song 'I will always love you'?",
+    questionText: 'Who originally recorded the song "I will always love you"?',
     options: ["Mariah Carey", "Whitney Houston", "Dolly Parton"],
     correctAnswerIndex: 2,
   },
   {
     id: 5,
     questionText:
-      "Dave Grohl of the Foo Fighters, was in what other notable ‘90s band? ?",
+      "Dave Grohl of the Foo Fighters, was in what other notable ‘90s band?",
     options: ["Nirvana", "Pearl Jam", "Green Day"],
     correctAnswerIndex: 2,
   },
