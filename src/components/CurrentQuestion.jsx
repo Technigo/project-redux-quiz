@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import "./CurrentQuestion.css";
 
 export const CurrentQuestion = () => {
   const quiz = useSelector((state) => state.quiz);
