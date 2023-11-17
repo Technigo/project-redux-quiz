@@ -39,7 +39,7 @@ code {
 .answers-container{
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   background-color: #18183c;
   width: 80%;
   align-items: center;
@@ -52,10 +52,12 @@ code {
   border-radius: 10px;
   border: 2px solid #f7f7f7;
   background-color: #bbbaba;
-  min-height: 40px;
+  min-height: 44px;
   color: #fff;
   font-weight: 600;
-  width: 200px;
+  width: 300px;
+  text-align: left;
+  font-size: 14px;
 }
 
 .answers:hover{
@@ -81,9 +83,24 @@ code {
 .quiz-buttons-container{
   display: flex;
   justify-content: center;
-  gap: 5px;
+  gap: 10px;
   margin-bottom: 20px;
   background-color: darkgrey;
   padding: 25px 50px;
   width: 80%;
+}
+
+.btn{
+  border-radius: 12px;
+  padding: 8px;
+  border: none;
+  font-size: 14px;
+}
+
+.btn:hover{
+  background-color: greenyellow;
+}
+
+.hidden {
+  display: none;
 }

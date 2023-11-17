@@ -121,7 +121,7 @@ export const quiz = createSlice({
   }
 });
 
-export const {submitAnswer, restart, goToNextQuestion} = 
+export const {submitAnswer, restart, goToNextQuestion, countQuestionsLeft} = 
 quiz.actions;
 
 export default quiz.reducer;
