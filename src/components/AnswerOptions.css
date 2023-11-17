@@ -1,0 +1,22 @@
+.multiChoiceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} 
+
+.multiChoice {
+  background-color: lightblue;
+  border-radius: 2rem;
+  width: 80vw;
+  min-height: 2rem;
+  border: none;
+  margin: 0.5rem;
+  padding: 0.5rem 2rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.correct {
+  border: 3px solid #ff193c;
+}
