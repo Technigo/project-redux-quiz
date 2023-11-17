@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import "./CurrentQuestion.css";
 
 export const CurrentQuestion = () => {
+  const quiz = useSelector((state) => state.quiz);
   const question = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
   );
@@ -11,8 +12,11 @@ export const CurrentQuestion = () => {
   }
 
   return (
-    <div className="currentQuestion">
-      <h1>Question: {question.questionText}</h1>
+    <div>
+      <h1>
+        Question {quiz.currentQuestionIndex}/{quiz.questions.length}:{" "}
+        {question.questionText}
+      </h1>
     </div>
   );
 };
