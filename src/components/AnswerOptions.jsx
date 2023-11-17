@@ -17,13 +17,16 @@ export const AnswerOptions = () => {
   // state for showing correct answer
   const [showAnswer, setShowAnswer] = useState(false);
 
+  // state to disable multiple choice buttons
+  const [ isDisabled, setIsDisabled ] = useState(false);
+
   // separate answer options into array of separate strings
   const options = question.options.slice(0, 4);
 
   // array of letters for multiple choice
   const letters = ["A. ", "B. ", "C. ", "D. "];
 
-  // function to save selected answer and clear correct/incorrect message
+  // function to save selected answer and hide color for correct/incorrect 
   const handleClick = (e) => {
     setSelectedAnswer(parseInt(e.target.value));
     setShowAnswer(false);
@@ -32,6 +35,7 @@ export const AnswerOptions = () => {
   // function to show if answer is correct
   const handleCheck = () => {
     setShowAnswer(true);
+    setIsDisabled(true);
   };
 
   // function to submit answer, go to next question on clicking next btn
@@ -45,6 +49,7 @@ export const AnswerOptions = () => {
     dispatch(quiz.actions.goToNextQuestion());
     setShowAnswer(false);
     setSelectedAnswer(null);
+    setIsDisabled(false);
   };
 
   return (
@@ -58,13 +63,14 @@ export const AnswerOptions = () => {
             value={index}
             style={{ backgroundColor: selectedAnswer === index ? "pink" : null }}
             onClick={handleClick}
+            disabled={isDisabled ? true : false}
           >
             {letters[index]}{option}
           </button>
         </div>
       ))}
-      <button onClick={handleCheck}>Check Answer</button>
-      <button onClick={handleNext}>Next</button>
+      <button type="button" className="checkBtn" onClick={handleCheck}>Check Answer</button>
+      <button type="button" className="nextBtn" onClick={handleNext} disabled={selectedAnswer != null ? false : true }>Next</button>
     </div>
   );
 };

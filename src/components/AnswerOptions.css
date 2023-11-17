@@ -17,6 +17,12 @@
   cursor: pointer;
 }
 
+.multiChoice:disabled {
+  background-color: lightblue;
+  color: black;
+}
+
 .correct {
   border: 3px solid #ff193c;
 }
+
