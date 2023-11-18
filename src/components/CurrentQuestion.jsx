@@ -3,6 +3,7 @@ import "./CurrentQuestion.css";
 
 export const CurrentQuestion = () => {
   const quiz = useSelector((state) => state.quiz);
+
   const question = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
   );
