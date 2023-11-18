@@ -45,7 +45,6 @@ export const CurrentQuestion = () => {
       </div>) : (
       <div></div>)}
       {/* add question counter */}
-
     </div>
   );
 };
