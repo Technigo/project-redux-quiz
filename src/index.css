@@ -12,6 +12,14 @@ code {
     monospace;
 }
 
+/* Controller */
+.controller-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 /* CurrentQuestion Styles */
 
 /* Quiz Container */
@@ -87,7 +95,7 @@ code {
   margin-bottom: 20px;
   background-color: darkgrey;
   padding: 25px 50px;
-  width: 80%;
+  width: 25%;
 }
 
 .btn{
