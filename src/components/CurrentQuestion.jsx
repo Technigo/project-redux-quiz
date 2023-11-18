@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { submitAnswer } from "../reducers/quiz";
-import { ProgressBar } from '../components/ProgressBar';
-import { ButtonsMenu } from "./ButtonsMenu";
 import { FaRegCheckCircle } from "react-icons/fa";
-
 
 export const CurrentQuestion = () => {
   const question = useSelector(
@@ -48,8 +45,7 @@ export const CurrentQuestion = () => {
       </div>) : (
       <div></div>)}
       {/* add question counter */}
-      <ProgressBar/>
-      <ButtonsMenu/>
+
     </div>
   );
 };
