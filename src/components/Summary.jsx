@@ -12,7 +12,7 @@ export const Summary = () => {
   //   const
   return (
     <div>
-      Summary
+      <h2>Here is a summary of your answers:</h2>
       <div>question: {question.id}</div>
       <div>
         ans:{" "}
