@@ -5,8 +5,10 @@ import { CurrentQuestion } from "./components/CurrentQuestion";
 import { AnswerOptions } from "./components/AnswerOptions";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import Summary from "./components/Summary";
+import Intro from "./components/Intro";
+import Countdown from "./components/Countdown/Countdown";
 
-export const App = () => {
+const App = () => {
   const quiz = useSelector((state) => state.quiz);
 
   return (
@@ -16,10 +18,19 @@ export const App = () => {
         <Summary />
       ) : (
         <>
-          <CurrentQuestion />
-          <AnswerOptions />
+          {quiz.quizStarted ? (
+            <>
+              <Countdown />
+              <CurrentQuestion />
+              <AnswerOptions />
+            </>
+          ) : (
+            <Intro />
+          )}
         </>
       )}
     </>
   );
 };
+
+export default App;
