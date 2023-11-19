@@ -20,6 +20,7 @@ code {
   width: 50%;
   background-color:#18183c;
   color: #fff;
+  position: relative;
 }
 
 /* CurrentQuestion Styles */
@@ -170,3 +171,38 @@ border-color: #4caf50;
   height: auto;
 }
 
+/* Quiz Summary */
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 48%;
+  max-height: 90vh;
+  overflow-y: auto;
+  outline: none;
+  z-index: 1000;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.quiz-body {
+  padding: 1rem;
+}
+
+.correct {
+  color: green;
+}
