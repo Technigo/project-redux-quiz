@@ -50,10 +50,6 @@ button:active {
   align-items: center;
   flex-direction: column;
 }
-/*
-.question-options {
-  flex-direction: row;
-} */
 
 .option-container {
   margin: 2rem;
