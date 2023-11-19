@@ -1,6 +1,6 @@
 .Countdown {
+  display: inline-block;
   margin: 0.5rem;
-  float: right;
   background-color: #313131;
   color: #fafafa;
   padding: 0.5rem;

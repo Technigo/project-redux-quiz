@@ -22,6 +22,10 @@
   color: black;
 }
 
+.multiChoice > li {
+  pointer-events: none; 
+}
+
 .correct {
   border: 3px solid #ff193c;
 }

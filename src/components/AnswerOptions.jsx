@@ -48,7 +48,7 @@ export const AnswerOptions = () => {
             onClick={handleClick}
             disabled={answer ? true : false}
           >
-            <li value={index}>{option}</li>
+            <li>{option}</li>
           </button>
         ))}
       </ol>
