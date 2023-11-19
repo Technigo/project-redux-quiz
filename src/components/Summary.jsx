@@ -2,9 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 export const Summary = () => {
-  const question = useSelector(
-    (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
-  );
+  // const question = useSelector(
+  //   (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
+  // );
   const answersArray = useSelector((state) => state.quiz.answers);
   let correct;
   answersArray.map((obj) => (correct = obj.isCorrect));
