@@ -21,8 +21,9 @@ const App = () => {
           {quiz.quizStarted ? (
             <>
               <CurrentQuestion />
-              <AnswerOptions />
               <Countdown />
+              <AnswerOptions />
+              <ProgressBar />
             </>
           ) : (
             <Intro />

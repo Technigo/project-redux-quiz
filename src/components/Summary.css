@@ -1,7 +1,24 @@
 .summary {
-  width: 80vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10% auto;
+  align-items: center;
+  background-color: #F4F3F6;
+  width: 80vw;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.summary ol, .summary li {
+  padding: 10px
+}
+
+.summary h1, .summary h2 {
+  margin-bottom: 20px;
+}
+
+.intro button {
+  margin-top: 20px;
 }

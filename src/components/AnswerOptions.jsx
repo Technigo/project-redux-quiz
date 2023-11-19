@@ -36,7 +36,7 @@ export const AnswerOptions = () => {
           <button
             key={index}
             type="button"
-            className={`${answer && question.correctAnswerIndex === index ? "correct" : ""} ${answer?.CurrentQuestion === index ? "answerSelected" : ""} multiChoice`}
+            className={`${answer && question.correctAnswerIndex === index ? "correct" : ""} ${answer?.answerIndex === index ? "answerSelected" : ""} multiChoice`}
             name={option}
             value={index}
             onClick={handleClick}

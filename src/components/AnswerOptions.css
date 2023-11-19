@@ -32,6 +32,11 @@
   opacity: 0.5;
 }
 
+.answers button.answerSelected.correct:disabled {
+  opacity: 1;
+  border: 3px solid gray;
+}
+
 .optionLetter {
   background-color: #EDE8E3;
   border-radius: 50%; /* Makes it a circle */
