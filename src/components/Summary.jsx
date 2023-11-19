@@ -12,14 +12,18 @@ export const Summary = () => {
   return (
     <div>
       <h2>Here is a summary of your answers:</h2>
-      <div>question: {question.id}</div>
       <div>
-        ans:
-        {answersArray.map((obj) =>
-          console.log("Summ:", obj.questionId, obj.isCorrect, correct)
-        )}
+        {answersArray.map((obj) => (
+          <div key={obj.questionId}>
+            <span> Question: {obj.questionId}</span>
+            <span>
+              {(obj.isCorrect === true && " ✅") ||
+                (obj.isCorrect === false && " ❌")}
+            </span>
+          </div>
+        ))}
       </div>
-      <div>Corr: {correct}</div>
     </div>
   );
 };
+// console.log("Summ:", obj.questionId, obj.isCorrect, correct)
