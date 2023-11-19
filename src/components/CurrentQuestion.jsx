@@ -51,12 +51,8 @@ export const CurrentQuestion = () => {
       <div className="header">
         <h1>The Music Quiz</h1>
       </div>
-      <div className="question">
-        <h2>{question.questionText}</h2>
-      </div>
-
       <div className="question-options">
-        {/*question.id === quizOver is false && <QuestionOne />*/}
+        {/*question.id === quizOver is false &&*/ <QuestionOne />}
       </div>
       <div className="footer">
         <button onClick={nextQuestion} className="next">

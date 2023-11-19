@@ -23,6 +23,9 @@ export const QuestionOne = () => {
   return (
     <div>
       <div className="option-container">
+        <div className="question">
+          <h2>{question.questionText}</h2>
+        </div>
         <div className="option-button one">
           <button onClick={() => submit(0)}>{question.options[0]}</button>
         </div>

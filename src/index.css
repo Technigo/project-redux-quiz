@@ -60,7 +60,8 @@ button:active {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "one two  three"
+    ". question . "
+    "one two three"
     ". eval . ";
 }
 .eval {
@@ -68,6 +69,21 @@ button:active {
   grid-column-end: 3;
   place-self: center;
   margin: 1rem;
+}
+.question {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  place-self: center;
+  margin: 1rem;
+}
+.one {
+  place-self: center;
+}
+.two {
+  place-self: center;
+}
+.three {
+  place-self: center;
 }
 
 .footer {
