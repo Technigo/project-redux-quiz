@@ -2,6 +2,25 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background-color: #F4F3F6;
   width: 80vw;
+  max-width: 600px;
   margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.intro p {
+  align-self: flex-start; /* Aligns the text to the left */
+  text-align: left; /* Ensures the text inside the paragraph is left-aligned */
+  width: 100%; /* Full width to maintain proper alignment */
+}
+
+.intro h1 {
+  margin-bottom: 20px;
+}
+
+.intro button {
+  margin-top: 20px;
 }
