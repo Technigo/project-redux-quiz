@@ -38,7 +38,7 @@ const questions = [
   {
     id: 5,
     questionText:"The coldest planet in our solar system is?",
-    questionImages: '/milkWay.jpg',
+    questionImages: '/milkWay3.jpg',
     options: ["Uranus", "Neptune", "Venus", "Mercury"],
     correctAnswerIndex: 0,
     explanation: "Uranus is the correct answer because it is the coldest planet in our solar system. It has a minimum temperature of -224 degrees Celsius (-371 degrees Fahrenheit), making it colder than Neptune, Venus, and all other planets in our solar system. Uranus' extreme coldness is due to its distance from the Sun and its unique composition, which includes a thick atmosphere of hydrogen and helium."
