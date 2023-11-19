@@ -9,13 +9,12 @@ export const Summary = () => {
   let correct;
   answersArray.map((obj) => (correct = obj.isCorrect));
 
-  //   const
   return (
     <div>
       <h2>Here is a summary of your answers:</h2>
       <div>question: {question.id}</div>
       <div>
-        ans:{" "}
+        ans:
         {answersArray.map((obj) =>
           console.log("Summ:", obj.isCorrect, correct)
         )}
