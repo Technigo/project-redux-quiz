@@ -35,16 +35,9 @@ export const AnswerOptions = () => {
           <button
             key={index}
             type="button"
-            className={
-              answer && question.correctAnswerIndex === index
-                ? "correct multiChoice"
-                : "multiChoice"
-            }
+            className={`${answer.show && question.correctAnswerIndex === index ? "correct" : ""} ${answer.selected === index ? "answerSelected" : ""} multiChoice`}
             name={option}
             value={index}
-            style={{
-              backgroundColor: answer?.answerIndex === index ? "pink" : null,
-            }}
             onClick={handleClick}
             disabled={answer ? true : false}
           >

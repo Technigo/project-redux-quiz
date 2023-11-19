@@ -3,18 +3,77 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-} 
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
 
-.multiChoice {
-  background-color: lightblue;
-  border-radius: 2rem;
-  width: 80vw;
-  min-height: 2rem;
+.multiChoiceOld {
+  background-color: #f4f3f6;
+  border-radius: 8px;
+  width: 500px;
+  height: 80px;
   border: none;
   margin: 0.5rem;
   padding: 0.5rem 2rem;
   text-align: left;
   cursor: pointer;
+}
+
+.answerOption {
+  margin-bottom: 10px; /* Adjust as needed */
+  width: 100%;
+  max-width: 510px;
+}
+
+.answerOption button {
+  background-color: #F4F3F6;
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.answerOption button.answerSelected {
+  background-color: #45C486;
+}
+
+.answerOption button.answerSelected .answerText {
+  color: white;
+}
+
+.optionLetter {
+  background-color: #EDE8E3;
+  border-radius: 50%; /* Makes it a circle */
+  width: 49px; /* Diameter */
+  height: 49px; /* Diameter */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px; /* Space between letter and text */
+  font-size: 1.2em;
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+  .optionLetter {
+      width: 36px; /* Smaller diameter for mobile */
+      height: 36px; /* Smaller diameter for mobile */
+  }
+
+  .option button {
+      max-width: 335px; /* Max width for mobile */
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 601px) {
+  .option button {
+      max-width: 510px; /* Max width for desktop */
+  }
 }
 
 .multiChoice:disabled {
@@ -28,5 +87,32 @@
 
 .correct {
   border: 3px solid #ff193c;
+}
+
+/* Control buttons */
+.controlButtons {
+  background-color: #F4F3F6;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controlButtons button {
+  border-radius: 8px;
+  background-color: #31CD63;
+  color: #F4F3F6;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 240px;
+  height: 60px;
+  margin: 10px;
+}
+
+.controlButtons button:disabled {
+  background-color: #747475;
+  opacity: 0.5;
+  color: #EDE8E2;
 }
 

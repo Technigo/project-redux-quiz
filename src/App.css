@@ -1,0 +1,11 @@
+html {
+  background-color: #EDE8E3;
+}
+
+.quizApp {
+  margin-top: 60px;
+  background-color: #ede8e3;
+  position: relative;
+  width: 1440px;
+  font-family: Helvetica;
+}
