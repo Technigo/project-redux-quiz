@@ -20,9 +20,9 @@ const App = () => {
         <>
           {quiz.quizStarted ? (
             <>
-              <Countdown />
               <CurrentQuestion />
               <AnswerOptions />
+              <Countdown />
             </>
           ) : (
             <Intro />

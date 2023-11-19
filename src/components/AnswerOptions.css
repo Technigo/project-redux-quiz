@@ -3,46 +3,33 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
-  margin-bottom: 60px;
 }
 
-.multiChoiceOld {
-  background-color: #f4f3f6;
-  border-radius: 8px;
-  width: 500px;
-  height: 80px;
-  border: none;
-  margin: 0.5rem;
-  padding: 0.5rem 2rem;
-  text-align: left;
-  cursor: pointer;
-}
-
-.answerOption {
+.answers {
   margin-bottom: 10px; /* Adjust as needed */
   width: 100%;
   max-width: 510px;
 }
 
-.answerOption button {
+.answers button {
   background-color: #F4F3F6;
-  border-radius: 8px;
-  border: none;
+  color: #060710;
   padding: 10px;
   width: 100%;
   display: flex;
   align-items: center;
-  font-weight: 600;
-  cursor: pointer;
 }
 
-.answerOption button.answerSelected {
+.answers button.answerSelected {
   background-color: #45C486;
 }
 
-.answerOption button.answerSelected .answerText {
+.answers button.answerSelected .answerText {
   color: white;
+}
+
+.answers button:disabled {
+  opacity: 0.5;
 }
 
 .optionLetter {
@@ -74,15 +61,6 @@
   .option button {
       max-width: 510px; /* Max width for desktop */
   }
-}
-
-.multiChoice:disabled {
-  background-color: lightblue;
-  color: black;
-}
-
-.multiChoice > li {
-  pointer-events: none; 
 }
 
 .correct {

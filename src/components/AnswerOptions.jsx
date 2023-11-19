@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { quiz } from "../reducers/quiz";
 import "./AnswerOptions.css";
+import CurrentQuestion from "./CurrentQuestion";
 
 export const AnswerOptions = () => {
   // get global state
@@ -30,21 +31,21 @@ export const AnswerOptions = () => {
 
   return (
     <div className="multiChoiceContainer">
-      <ol type="A">
+      <div className="answers">
         {question.options.map((option, index) => (
           <button
             key={index}
             type="button"
-            className={`${answer.show && question.correctAnswerIndex === index ? "correct" : ""} ${answer.selected === index ? "answerSelected" : ""} multiChoice`}
+            className={`${answer && question.correctAnswerIndex === index ? "correct" : ""} ${answer?.CurrentQuestion === index ? "answerSelected" : ""} multiChoice`}
             name={option}
             value={index}
             onClick={handleClick}
             disabled={answer ? true : false}
           >
-            <li>{option}</li>
+           <span className="optionLetter">{index + 1}</span><span>{option}</span>
           </button>
         ))}
-      </ol>
+      </div>
 
       <button
         type="button"
