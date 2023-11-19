@@ -52,12 +52,6 @@ export const CurrentQuestion = () => {
           </button>
         )}
       </div>
-      <div>
-        <p>question ID:{question.id}</p>
-        <p>answerIndex:{question.answerIndex}</p>
-        <p>answer:{question.answer}</p>
-        <p>qiuz over:{isOver}</p>
-      </div>
     </div>
   );
 };

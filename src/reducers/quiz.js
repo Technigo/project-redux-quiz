@@ -31,7 +31,7 @@ const questions = [
     questionText:
       "Dave Grohl of the Foo Fighters, was in what other notable ‘90s band?",
     options: ["Nirvana", "Pearl Jam", "Green Day"],
-    correctAnswerIndex: 2,
+    correctAnswerIndex: 0,
   },
 ];
 
