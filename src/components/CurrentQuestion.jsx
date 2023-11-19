@@ -16,7 +16,6 @@ export const CurrentQuestion = () => {
   );
 
   const isOver = useSelector((state) => state.quiz.quizOver);
-  const quizOver = useSelector((state) => state.quiz.quizOver);
 
   answersArray.map((obj) => (isCorrect = obj.isCorrect));
 
@@ -52,6 +51,7 @@ export const CurrentQuestion = () => {
           </button>
         )}
       </div>
+      <span className="progress">Question {question.id}/5</span>
     </div>
   );
 };
