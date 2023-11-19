@@ -1,5 +1,5 @@
 import { CurrentQuestion } from './CurrentQuestion';
-import { ProgressBar } from './ProgressBar';
+import  ProgressBar  from './ProgressBar';
 import { ButtonsMenu } from "./ButtonsMenu";
 import { Header } from "./Header";
 

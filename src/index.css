@@ -120,3 +120,46 @@ code {
 .hidden {
   display: none;
 }
+
+
+.progress-bar-container {
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease-in-out;
+}
+
+
+.answers-container.with-image {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 500px;
+}
+
+.answers-container.with-image .answers {
+  flex: 0 0 49%; 
+  box-sizing: border-box; 
+  padding: 10px; 
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.fixed-image-size {
+  width: 100%;
+  height: auto;
+}
