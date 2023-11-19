@@ -6,13 +6,15 @@ export const Summary = () => {
 
   if (quiz.quizOver) {
     console.log(quiz.answers);
-    const correctAnswers = quiz.answers.filter(answer => answer.isCorrect);
+    const correctAnswers = quiz.answers.filter((answer) => answer.isCorrect);
     const score = (correctAnswers.length / quiz.answers.length) * 100; // Calculate percentage score
 
     return (
       <div className="Summary">
         <h1>Summary</h1>
-        <h2>You Scored: {score}%</h2>
+        <h2>
+          You Scored: {score}% in a total time of {quiz.totalTime} seconds.
+        </h2>
 
         <ol>
           {quiz.answers.map((answer, index) => (
