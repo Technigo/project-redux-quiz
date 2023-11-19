@@ -16,7 +16,7 @@ export const Summary = () => {
       <div>
         ans:
         {answersArray.map((obj) =>
-          console.log("Summ:", obj.isCorrect, correct)
+          console.log("Summ:", obj.questionId, obj.isCorrect, correct)
         )}
       </div>
       <div>Corr: {correct}</div>

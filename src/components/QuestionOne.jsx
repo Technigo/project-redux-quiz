@@ -15,8 +15,8 @@ export const QuestionOne = () => {
   const submit = (index) => {
     dispatch(submitAnswer({ questionId: question.id, answerIndex: index }));
 
-    console.log("in submit ID", question.id);
-    console.log("index", index);
+    console.log("questionOne submit ID", question.id);
+    console.log("questionOne index", index);
     answersArray.map((obj) => console.log(obj.isCorrect));
   };
 

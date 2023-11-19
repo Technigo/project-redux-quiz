@@ -114,4 +114,5 @@ export const quiz = createSlice({
   },
 });
 
-export const { restart, goToNextQuestion, submitAnswer } = quiz.actions;
+export const { restart, goToNextQuestion, submitAnswer, answers } =
+  quiz.actions;

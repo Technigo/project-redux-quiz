@@ -11,13 +11,18 @@ export const CurrentQuestion = () => {
     (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
   );
   const answersArray = useSelector((state) => state.quiz.answers);
-  const isCorrect = answersArray.map((obj) => console.log(obj.isCorrect));
+  let isCorrect = answersArray.map((obj) =>
+    console.log("currQ isCorrect:", obj.isCorrect)
+  );
+
+  const isOver = useSelector((state) => state.quiz.quizOver);
+  const quizOver = useSelector((state) => state.quiz.quizOver);
 
   answersArray.map((obj) => (isCorrect = obj.isCorrect));
-  const quizOver = useSelector((state) => state.quiz.quizOver);
 
   const nextQuestion = () => {
     dispatch(goToNextQuestion());
+    console.log("quizOver:", isOver);
   };
 
   const restartQuiz = () => {
@@ -34,22 +39,24 @@ export const CurrentQuestion = () => {
         <h1>The Music Quiz</h1>
       </div>
       <div className="question-options">
-        {/* if quizOver is false &&*/ <QuestionOne />}
+        {isOver === false && <QuestionOne />}
+        {isOver === true /*if quizOver is true */ && <Summary />}
       </div>
       <div className="footer">
-        <button onClick={nextQuestion} className="next">
-          Next question please!
-        </button>
         <button onClick={restartQuiz} className="restart">
           Restart the quiz
         </button>
+        {isOver === false && (
+          <button onClick={nextQuestion} className="next">
+            Next question please!
+          </button>
+        )}
       </div>
       <div>
-        {1 === 1 /*if quizOver is true */ && <Summary />}
         <p>question ID:{question.id}</p>
         <p>answerIndex:{question.answerIndex}</p>
         <p>answer:{question.answer}</p>
-        <p>qiuz over:{quizOver}</p>
+        <p>qiuz over:{isOver}</p>
       </div>
     </div>
   );
