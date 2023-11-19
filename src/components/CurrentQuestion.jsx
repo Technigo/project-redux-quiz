@@ -51,7 +51,6 @@ export const CurrentQuestion = () => {
           </button>
         )}
       </div>
-      <span className="progress">Question {question.id}/5</span>
     </div>
   );
 };

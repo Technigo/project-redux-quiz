@@ -56,6 +56,7 @@ button:active {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
+    " . progress . "
     ". question . "
     "one two three"
     ". eval . ";
@@ -67,6 +68,8 @@ button:active {
   margin: 1rem;
 }
 .progress {
+  grid-column-start: 2;
+  grid-column-end: 3;
   place-self: center;
   margin: 1.5rem;
   font-weight: 500;

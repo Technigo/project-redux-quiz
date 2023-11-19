@@ -23,6 +23,7 @@ export const QuestionOne = () => {
   return (
     <div>
       <div className="option-container">
+        <span className="progress">Question {question.id}/5</span>
         <div className="question">
           <h2>{question.questionText}</h2>
         </div>
