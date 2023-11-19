@@ -28,3 +28,5 @@ export const CurrentQuestion = () => {
     </div>
   );
 };
+
+export default CurrentQuestion;

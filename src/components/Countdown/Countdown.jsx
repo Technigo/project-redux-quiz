@@ -5,6 +5,7 @@ import "./Countdown.css";
 
 const Countdown = () => {
   const quizState = useSelector((state) => state.quiz);
+
   const dispatch = useDispatch();
 
   // state to store time in seconds
@@ -21,12 +22,13 @@ const Countdown = () => {
       if (time <= 0) {
         clearInterval(countdown);
         setTimeUp(true);
+        // select an incorrect answer, default is 0 and 1 if 0 is the correct one
         let incorrectAnswer = 0;
         if (
           incorrectAnswer ===
           quizState.questions[quizState.currentQuestionIndex].correctAnswerIndex
         ) {
-          incorrectAnswer += 1;
+          incorrectAnswer = 1;
         }
         dispatch(
           quiz.actions.submitAnswer({
@@ -42,11 +44,12 @@ const Countdown = () => {
   useEffect(() => {
     setTime(10);
     setTimeUp(false);
+    // add passed time to the total time
     dispatch(quiz.actions.addTime(10 - time));
   }, [quizState.currentQuestionIndex]);
 
   return (
-    <div className="Countdown">
+    <div className="countdown">
       {timeUp ? <p>Time is up!</p> : <p>{time.toString()} seconds left</p>}
     </div>
   );

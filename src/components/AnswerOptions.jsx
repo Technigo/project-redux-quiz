@@ -64,3 +64,5 @@ export const AnswerOptions = () => {
     </div>
   );
 };
+
+export default AnswerOptions;

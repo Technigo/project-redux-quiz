@@ -10,7 +10,7 @@ export const Summary = () => {
     const score = (correctAnswers.length / quiz.answers.length) * 100; // Calculate percentage score
 
     return (
-      <div className="Summary">
+      <div className="summary">
         <h1>Summary</h1>
         <h2>
           You Scored: {score}% in a total time of {quiz.totalTime} seconds.

@@ -2,19 +2,20 @@ import { useSelector } from "react-redux";
 import "./ProgressBar.css";
 
 const ProgressBar = () => {
-  const quiz = useSelector((state) => state.quiz);
+  const quizState = useSelector((state) => state.quiz);
 
   let progress = 0;
-  if (quiz.quizOver) {
+  if (quizState.quizOver) {
     progress = 100;
   } else {
-    progress = (quiz.currentQuestionIndex * 100) / quiz.questions.length;
+    progress =
+      (quizState.currentQuestionIndex * 100) / quizState.questions.length;
   }
 
   return (
-    <div className="ProgressBar">
+    <div className="progressBar">
       <div
-        className="CurrentProgress"
+        className="currentProgress"
         style={{
           width: `${progress}%`,
         }}

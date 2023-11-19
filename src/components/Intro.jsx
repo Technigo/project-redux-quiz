@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { quiz } from "../reducers/quiz";
+import "./Intro.css";
 
 const Intro = () => {
   const quizState = useSelector((state) => state.quiz);
@@ -10,7 +11,7 @@ const Intro = () => {
   };
 
   return (
-    <>
+    <div className="intro">
       <h1>Intro</h1>
       <p>Hello and welcome to our quiz!</p>
       <p>
@@ -21,7 +22,7 @@ const Intro = () => {
       </p>
       <p>Once you are ready press the START button below to begin.</p>
       <button onClick={handleStart}>START</button>
-    </>
+    </div>
   );
 };
 
