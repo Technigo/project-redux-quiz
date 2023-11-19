@@ -32,7 +32,9 @@ export const QuestionOne = () => {
         <div className="option-button three">
           <button onClick={() => submit(2)}>{question.options[2]}</button>
         </div>
-        <div>{isCorrect === true && <div>that is correct</div>}</div>
+        <div className="eval">
+          {/*isCorrect === true && */} <div>that is correct</div>
+        </div>
       </div>
     </div>
   );

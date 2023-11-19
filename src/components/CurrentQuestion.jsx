@@ -53,7 +53,7 @@ export const CurrentQuestion = () => {
       </div>
 
       <div className="question-options">
-        {/*question.id === 1 &&*/ <QuestionOne />}
+        {/*question.id === quizOver is false &&*/ <QuestionOne />}
       </div>
       <div className="footer">
         <button onClick={nextQuestion} className="next">

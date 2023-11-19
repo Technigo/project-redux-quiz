@@ -58,7 +58,16 @@ button:active {
 .option-container {
   margin: 2rem;
   display: grid;
-  grid-template-areas: "one two three";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "one two  three"
+    ". eval . ";
+}
+.eval {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  place-self: center;
+  margin: 1rem;
 }
 
 .footer {
