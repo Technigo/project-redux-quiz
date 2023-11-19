@@ -1,8 +1,10 @@
 .countdown {
-  display: inline-block;
-  margin: 0.5rem;
+  display: block;
+  margin: 0.5rem auto;
   background-color: #313131;
   color: #fafafa;
   padding: 0.5rem;
   border-radius: 2rem;
+  max-width: 200px;
+  text-align: center;
 }

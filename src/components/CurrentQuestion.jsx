@@ -19,6 +19,7 @@ export const CurrentQuestion = () => {
           Question {quizState.currentQuestionIndex}/{quizState.questions.length}
         </h1>
       </div>
+
       <div className="questionImage">
         <img src={question.image} />
       </div>
