@@ -93,3 +93,11 @@ button:active {
 .restart {
   margin: 1rem;
 }
+
+.summary-answers {
+  display: flex;
+  justify-content: space-around;
+  font-size: larger;
+  font-weight: 500;
+  margin: 1.5rem;
+}
