@@ -9,8 +9,8 @@ export const QuestionOne = () => {
   const answersArray = useSelector((state) => state.quiz.answers);
 
   const dispatch = useDispatch();
-
-  const isCorrect = answersArray.map((obj) => console.log(obj.isCorrect));
+  let isCorrect = "";
+  answersArray.map((obj) => (isCorrect = obj.isCorrect));
 
   const submit = (index) => {
     dispatch(submitAnswer({ questionId: question.id, answerIndex: index }));
@@ -36,7 +36,8 @@ export const QuestionOne = () => {
           <button onClick={() => submit(2)}>{question.options[2]}</button>
         </div>
         <div className="eval">
-          {/*isCorrect === true && */} <div>that is correct</div>
+          {isCorrect === true && <div>that is correct</div>}
+          {isCorrect === false && <div>that is not correct</div>}
         </div>
       </div>
     </div>

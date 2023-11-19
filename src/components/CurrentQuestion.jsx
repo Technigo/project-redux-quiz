@@ -15,6 +15,8 @@ export const CurrentQuestion = () => {
   );
   const answersArray = useSelector((state) => state.quiz.answers);
   const isCorrect = answersArray.map((obj) => console.log(obj.isCorrect));
+
+  // answersArray.map((obj) => (isCorrect = obj.isCorrect));
   const quizOver = useSelector((state) => state.quiz.quizOver);
 
   const nextQuestion = () => {
