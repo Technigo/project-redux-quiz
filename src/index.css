@@ -75,13 +75,13 @@ body{
 .answers{
   border-radius: 12px;
   border: 3px solid #ffffff;
-  background-color: #7c7c7c;
-  min-height: 44px;
+  background-color: #575757;
+  min-height: 48px;
   color: #fff;
   font-weight: 600;
   width: 70%;
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .answers:hover{
@@ -186,6 +186,10 @@ color: #18183c;
 .fixed-image-size {
   width: 100%;
   height: auto;
+}
+
+.image{
+  box-shadow: 0px 3px 0px #ffffff;
 }
 
 /* Quiz Summary */
