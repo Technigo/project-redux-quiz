@@ -45,11 +45,14 @@ const questions = [
   }
 ];
 
+
 const initialState = {
   questions,
   answers: [],
   currentQuestionIndex: 0,
-  quizOver: false
+  quizOver: false,
+  score: 0, // Added a score property to the state
+  scoreThreshold: -10 // Set a score threshold to end the quiz
 };
 
 export const quiz = createSlice({
@@ -71,30 +74,44 @@ export const quiz = createSlice({
      * When dispatching this action, you should pass an object as the payload with `questionId`
      * and `answerIndex` keys. See the readme for more details.
      */
+
+
+
     submitAnswer: (state, action) => {
       const { questionId, answerIndex } = action.payload;
       const question = state.questions.find((q) => q.id === questionId);
-
+    
       if (!question) {
         throw new Error(
-          "Could not find question! Check to make sure you are passing the question id correctly."
+          "Could not find the question! Check to make sure you are passing the question id correctly."
         );
       }
-
+    
       if (question.options[answerIndex] === undefined) {
         throw new Error(
           `You passed answerIndex ${answerIndex}, but it is not in the possible answers array!`
         );
       }
-
+    
+      const isCorrect = question.correctAnswerIndex === answerIndex;
+      const scoreChange = isCorrect ? 10 : -5; // Adjust points as needed
+    
       state.answers.push({
         questionId,
         answerIndex,
         question,
         answer: question.options[answerIndex],
-        isCorrect: question.correctAnswerIndex === answerIndex
+        isCorrect
       });
+    
+      state.score += scoreChange;
+    
+      // Check if the score is below the threshold to end the quiz
+      if (state.score < state.scoreThreshold) {
+        state.quizOver = true;
+      }
     },
+    
 
     /**
      * Use this action to progress the quiz to the next question. If there's
