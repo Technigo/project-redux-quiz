@@ -48,7 +48,7 @@ export const CurrentQuestion = () => {
   }
 
   return (
-    <div className="quiz-container">
+    <main className="quiz-container">
       <h1 className="quiz-question">Question: {question.questionText}</h1>
       <div>
         {(
@@ -59,7 +59,6 @@ export const CurrentQuestion = () => {
         {/* answer options*/}
         {question.options.map((option, index) => (
           <button
-          className="answers"
         className={`answers ${answer && correctAnswerIndex == index ? 'correct' : ''}  ${incorrectAnswerIndex == index ? 'incorrect' : ''}`}
           key={index}
           onClick={() => handleAnswerClick(index, question.id)}
@@ -87,6 +86,6 @@ export const CurrentQuestion = () => {
           {answer.isCorrect ? 'Correct!' : 'Incorrect'}
         </div>
       )}
-    </div>
+    </main>
   );
 };
