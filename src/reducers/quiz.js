@@ -1,48 +1,53 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Change these to your own questions!
 const questions = [
   {
     id: 1,
-    questionText: "Who set the Olympic record for the 100m dash in 2012?",
-    options: ["Usain Bolt", "Justin Gatlin", "Tyson Gay", "Asafa Powell"],
-    correctAnswerIndex: 0
+    questionText: "What is the Latin name for the muscle group commonly known as the 'six-pack'?",
+    options: ["A) Gluteus maximus", "B) Pectoralis major", "C) Rectus abdominis", "D) Deltoid"],
+    correctAnswerIndex: 2
   },
   {
     id: 2,
-    questionText:
-      "When was Michael Phelps last named male World Swimmer of the Year?",
-    options: ["2012", "2014", "2016", "2018"],
-    correctAnswerIndex: 2
+    questionText: "Which muscle group is primarily engaged during a push-up?",
+    options: ["A) Biceps", "B) Quadriceps", "C) Hamstrings", "D) Triceps"],
+    correctAnswerIndex: 3
+  },
+  {
+    id: 3,
+    questionText: "Which leg muscle is responsible for bringing the leg inward toward the body?",
+    options: ["A)Adductors", "B)Abductor", "C)Hamstrings", "D)Gluteus maximus"],
+    correctAnswerIndex: 0
+  }, {
+    id: 4,
+    questionText: "Which muscle is responsible for allowing movement at the elbow joint?",
+    options: ["A) Biceps brachii", "B) Triceps brachii", "C) Deltoid", "D) Quadriceps"],
+    correctAnswerIndex: 1
+  }, {
+    id: 5,
+    questionText: "In human anatomy, what is the main function of the deltoid muscle?",
+    options: ["A) Flexion of the knee", "B) Abduction of the arm", "C) Extension of the elbow", , "D) Plantarflexion of the foot"],
+    correctAnswerIndex: 1
   }
+
 ];
 
 const initialState = {
   questions,
   answers: [],
   currentQuestionIndex: 0,
-  quizOver: false
+  quizOver: false,
+  points: 0,
+  isAnswerCorrect: null,
+  showResult: false,
 };
 
 export const quiz = createSlice({
   name: "quiz",
   initialState,
   reducers: {
-    /**
-     * Use this action when a user selects an answer to the question.
-     * The answer will be stored in the `quiz.answers` state with the
-     * following values:
-     *
-     *    questionId  - The id of the question being answered.
-     *    answerIndex - The index of the selected answer from the question's options.
-     *    question    - A copy of the entire question object, to make it easier to show
-     *                  details about the question in your UI.
-     *    answer      - The answer string.
-     *    isCorrect   - true/false if the answer was the one which the question says is correct.
-     *
-     * When dispatching this action, you should pass an object as the payload with `questionId`
-     * and `answerIndex` keys. See the readme for more details.
-     */
+
+
     submitAnswer: (state, action) => {
       const { questionId, answerIndex } = action.payload;
       const question = state.questions.find((q) => q.id === questionId);
@@ -59,22 +64,21 @@ export const quiz = createSlice({
         );
       }
 
+      const isCorrect = question.correctAnswerIndex === answerIndex;
+
       state.answers.push({
         questionId,
         answerIndex,
         question,
         answer: question.options[answerIndex],
-        isCorrect: question.correctAnswerIndex === answerIndex
+        isCorrect
       });
+
+      if (isCorrect) {
+        state.points += 1;
+      }
     },
 
-    /**
-     * Use this action to progress the quiz to the next question. If there's
-     * no more questions (the user was on the final question), set `quizOver`
-     * to `true`.
-     *
-     * This action does not require a payload.
-     */
     goToNextQuestion: (state) => {
       if (state.currentQuestionIndex + 1 === state.questions.length) {
         state.quizOver = true;
@@ -83,15 +87,13 @@ export const quiz = createSlice({
       }
     },
 
-    /**
-     * Use this action to reset the state to the initial state the page had
-     * when it was loaded. Who doesn't like re-doing a quiz when you know the
-     * answers?!
-     *
-     * This action does not require a payload.
-     */
+
     restart: () => {
       return initialState;
     }
   }
 });
+
+export const { goToNextQuestion, restart, submitAnswer } = quiz.actions;
+
+export const selectPoints = (state) => state.quiz.points;
