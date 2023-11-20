@@ -20,6 +20,7 @@ code {
   width: 50%;
   background-color:#18183c;
   color: #fff;
+  position: relative;
 }
 
 /* CurrentQuestion Styles */

@@ -1,7 +1,7 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { submitAnswer } from '../reducers/quiz';
+import { useEffect } from 'react';
 import { FaRegCheckCircle } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { restart, submitAnswer } from '../reducers/quiz';
 
 
 export const CurrentQuestion = () => {
@@ -9,16 +9,26 @@ export const CurrentQuestion = () => {
     (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
   );
 
-  if (!question) {
-    return <h1>Oh no! I could not find the current question!</h1>;
-  }
+  const dispatch = useDispatch();
+
+  const quizOver = useSelector((state) => state.quiz.quizOver);
+  const TIMER = 3000
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log("restarting")
+      dispatch(restart());
+    }, TIMER);
+
+    return () => clearTimeout(timer);
+  }, [dispatch, quizOver]);
+
 
   const answer = useSelector(
     (state) =>
       state.quiz.answers.find((a) => a.questionId === question.id)
   );
 
-  const dispatch = useDispatch();
 
   const handleAnswerClick = (answerIndex, questionId) => {
     dispatch(
@@ -30,6 +40,12 @@ export const CurrentQuestion = () => {
   };
 
   const withImage = 'optionsImages' in question;
+  const correctAnswerIndex = question.correctAnswerIndex ;
+  const incorrectAnswerIndex= answer && !answer.isCorrect ? answer.answerIndex : undefined ;
+
+  if (!question) {
+    return <h1>Oh no! I could not find the current question!</h1>;
+  }
 
   return (
     <div className="quiz-container">
@@ -43,7 +59,7 @@ export const CurrentQuestion = () => {
         {/* answer options*/}
         {question.options.map((option, index) => (
           <button
-            className="answers"
+          className={`answers ${answer && correctAnswerIndex == index ? 'correct' : ''}  ${incorrectAnswerIndex == index ? 'incorrect' : ''}`}
             key={index}
             onClick={() => handleAnswerClick(index, question.id)}
           >
