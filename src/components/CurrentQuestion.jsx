@@ -48,21 +48,21 @@ export const CurrentQuestion = () => {
   }
 
   return (
-    <div className="quiz-container">
+    <main className="quiz-container">
       <h1 className="quiz-question">Question: {question.questionText}</h1>
       <div>
         {(
-          <img src={question.questionImages} alt={question.options} />
+          <img className="image" src={question.questionImages} alt={question.options} />
         )}
       </div>
       <div className={`answers-container ${withImage ? 'with-image' : ''}`}>
         {/* answer options*/}
         {question.options.map((option, index) => (
           <button
-          className={`answers ${answer && correctAnswerIndex == index ? 'correct' : ''}  ${incorrectAnswerIndex == index ? 'incorrect' : ''}`}
-            key={index}
-            onClick={() => handleAnswerClick(index, question.id)}
-          >
+        className={`answers ${answer && correctAnswerIndex == index ? 'correct' : ''}  ${incorrectAnswerIndex == index ? 'incorrect' : ''}`}
+          key={index}
+          onClick={() => handleAnswerClick(index, question.id)}
+        >
             <FaRegCheckCircle />
             {withImage && (
               <img className="fixed-image-size"  src={question.optionsImages[index]} alt={option} />
@@ -86,6 +86,6 @@ export const CurrentQuestion = () => {
           {answer.isCorrect ? 'Correct!' : 'Incorrect'}
         </div>
       )}
-    </div>
+    </main>
   );
 };
