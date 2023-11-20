@@ -52,7 +52,7 @@ export const CurrentQuestion = () => {
       <h1 className="quiz-question">Question: {question.questionText}</h1>
       <div>
         {(
-          <img src={question.questionImages} alt={question.options} />
+          <img className="image" src={question.questionImages} alt={question.options} />
         )}
       </div>
       <div className={`answers-container ${withImage ? 'with-image' : ''}`}>
