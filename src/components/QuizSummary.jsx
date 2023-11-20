@@ -4,7 +4,7 @@ export function QuizSummary() {
   const quiz = useSelector((state) => state.quiz);
   console.log("quizSummary", quiz)
   return (
-    <div className='quiz-body'>
+    <section className='quiz-body'>
       <h3>Quiz Summary</h3>
       {quiz.answers.map((answer) => (
         <div key={answer.questionId}>
@@ -15,6 +15,6 @@ export function QuizSummary() {
           <p style={{ color: answer.isCorrect ? "green" : "red" }}>{answer.isCorrect ? "Correct" : "Incorrect"}</p>
         </div>
       ))}
-    </div>
+    </section>
   );
 }

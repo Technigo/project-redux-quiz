@@ -22,13 +22,13 @@ export const ButtonsMenu = ({ onShowFinishModal }) => {
   };
 
   return (
-    <div className="quiz-buttons-container">
+    <section className="quiz-buttons-container">
       <button className="btn" onClick={handleRestart}>
         Restart <MdOutlineRestartAlt />
       </button>
       <button className="btn" onClick={quiz.currentQuestionIndex === quiz.questions.length - 1 ? handleFinish : handleNext}>
         {quiz.currentQuestionIndex === quiz.questions.length - 1 ? 'Finish' : 'Next'} <GrChapterNext />
       </button>
-    </div>
+    </section>
   );
 };
