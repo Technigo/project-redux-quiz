@@ -40,6 +40,8 @@ export const CurrentQuestion = () => {
   };
 
   const withImage = 'optionsImages' in question;
+  const correctAnswerIndex = question.correctAnswerIndex ;
+  const incorrectAnswerIndex= answer && !answer.isCorrect ? answer.answerIndex : undefined ;
 
   if (!question) {
     return <h1>Oh no! I could not find the current question!</h1>;
@@ -57,10 +59,11 @@ export const CurrentQuestion = () => {
         {/* answer options*/}
         {question.options.map((option, index) => (
           <button
-            className="answers"
-            key={index}
-            onClick={() => handleAnswerClick(index, question.id)}
-          >
+          className="answers"
+        className={`answers ${answer && correctAnswerIndex == index ? 'correct' : ''}  ${incorrectAnswerIndex == index ? 'incorrect' : ''}`}
+          key={index}
+          onClick={() => handleAnswerClick(index, question.id)}
+        >
             <FaRegCheckCircle />
             {withImage && (
               <img className="fixed-image-size"  src={question.optionsImages[index]} alt={option} />
