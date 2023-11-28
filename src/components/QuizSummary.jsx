@@ -7,8 +7,8 @@ export function QuizSummary() {
   return (
     <section className='quiz-body'>
       <div className="score-summary">
-        <p calssname= 'TotalScore'>Total Score: {quiz.score}</p> 
-        <p className='resultScore'>{quiz.score < 20 ? "You Lose..." : "You win"}  </p> 
+        <h2 className= 'TotalScore'>Total Score: {quiz.score}</h2> 
+        <h3 className='resultScore'>{quiz.score < 20 ? "You Lose 🙁" : "You win 🥳"} </h3> 
       </div>
       <h3>Quiz Summary</h3>
       {quiz.answers.map((answer) => (

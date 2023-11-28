@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import Modal from 'react-modal';
-import { useSelector } from 'react-redux';
-import { ButtonsMenu } from './ButtonsMenu';
-import { CurrentQuestion } from './CurrentQuestion';
-import { Header } from './Header';
-import ProgressBar from './ProgressBar';
-import { QuizSummary } from './QuizSummary';
+import { useState } from "react";
+import Modal from "react-modal";
+import { useSelector } from "react-redux";
+import { ButtonsMenu } from "./ButtonsMenu";
+import { CurrentQuestion } from "./CurrentQuestion";
+import { Header } from "./Header";
+import ProgressBar from "./ProgressBar";
+import { QuizSummary } from "./QuizSummary";
 
 export const Controller = () => {
   const quiz = useSelector((state) => state.quiz);
@@ -34,8 +34,13 @@ export const Controller = () => {
         className="modal"
         overlayClassName="overlay"
       >
+        <div className="close-sticky">
+          <button onClick={handleCloseFinishModal} className="close-button">
+            Close
+          </button>
+        </div>
+
         <QuizSummary />
-        <button onClick={handleCloseFinishModal}>Close</button>
       </Modal>
     </div>
   );
