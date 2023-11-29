@@ -31,7 +31,7 @@ export const CurrentQuestion = () => {
 
   const handleAnswerClick = (answerIndex, questionId) => {
     dispatch(submitAnswer({ answerIndex, questionId }));
-    dispatch(goToNextQuestion());
+    // dispatch(goToNextQuestion());
   };
 
   const withImage = 'optionsImages' in question;
