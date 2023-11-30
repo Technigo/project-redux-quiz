@@ -4,7 +4,7 @@ import { MdOutlineRestartAlt } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { goToNextQuestion, restart } from '../reducers/quiz';
 
-export const ButtonsMenu = ({ onShowFinishModal, onRestartTimer }) => {
+export const ButtonsMenu = ({ onShowFinishModal, onRestartTimer, onStopTimer }) => {
   const dispatch = useDispatch();
   const quiz = useSelector((state) => state.quiz);
 
@@ -18,9 +18,9 @@ export const ButtonsMenu = ({ onShowFinishModal, onRestartTimer }) => {
   };
 
   const handleFinish = () => {
+    onStopTimer(); 
     onShowFinishModal();
   };
-
   return (
     <section className="quiz-buttons-container">
       <button className="btn" onClick={handleRestart}>

@@ -1,11 +1,13 @@
 // Timer.js
 import { useState, useEffect } from 'react';
 
-const Timer = ({ onTimerStop, resetTiming }) => {
+const Timer = ({ onTimerStop, resetTiming, stopTimer }) => {
   const [seconds, setSeconds] = useState(0);
+ let interval;
+
 
   useEffect(() => {
-    let interval;
+   
     setSeconds(0);
   
     interval = setInterval(() => {
@@ -19,7 +21,12 @@ const Timer = ({ onTimerStop, resetTiming }) => {
   
   useEffect(() => {
     onTimerStop(seconds);
-  }, [seconds, onTimerStop]);
+
+    if (stopTimer) {
+      clearInterval(interval); 
+    }
+  }, [seconds, onTimerStop, stopTimer]);
+
 
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
@@ -34,4 +41,4 @@ const Timer = ({ onTimerStop, resetTiming }) => {
   );
 };
 
-export { Timer };
+export { Timer};
