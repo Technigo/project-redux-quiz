@@ -322,6 +322,16 @@ color: #18183c;
 
 @media only screen and (max-width: 600px) {
   .modal {
+    max-width: 90vw;
+  }
+
+  .answers-container.with-image {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .modal {
     max-width: 70vw;
   }
 
