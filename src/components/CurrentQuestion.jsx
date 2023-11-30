@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { FaRegCheckCircle } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { restart, submitAnswer, goToNextQuestion } from '../reducers/quiz';
+import { IconContext } from 'react-icons';
+
 
 export const CurrentQuestion = () => {
   const question = useSelector(
@@ -58,7 +60,9 @@ export const CurrentQuestion = () => {
             key={index}
             onClick={() => handleAnswerClick(index, question.id)}
           >
-            <FaRegCheckCircle />
+            <IconContext.Provider value={{className:"answer-icon"}}>
+              <FaRegCheckCircle />
+            </IconContext.Provider>
             {withImage && <img className="fixed-image-size" src={question.optionsImages[index]} alt={option} />}
             {option}
           </button>
