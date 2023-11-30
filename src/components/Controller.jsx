@@ -6,10 +6,13 @@ import { CurrentQuestion } from "./CurrentQuestion";
 import { Header } from "./Header";
 import ProgressBar from "./ProgressBar";
 import { QuizSummary } from "./QuizSummary";
+import {Timer} from "./Timer"
 
 export const Controller = () => {
   const quiz = useSelector((state) => state.quiz);
   const [isFinishModalOpen, setFinishModalOpen] = useState(false);
+  const [quizDuration, setQuizDuration] = useState(0);
+  const [resetTiming, setResetTiming] = useState();
 
   const isQuizOver = quiz.quizOver;
 
@@ -17,30 +20,38 @@ export const Controller = () => {
     setFinishModalOpen(true);
   };
 
-  const handleCloseFinishModal = () => {
+  const handleCloseFinishModal = (duration) => {
     setFinishModalOpen(false);
+    setQuizDuration(duration);
+  };
+
+  const handleRestartTimer = () => {
+    setQuizDuration(0);
+    setResetTiming((prev) => !prev);
   };
 
   return (
     <div className="controller-container">
       <Header />
+      <Timer onTimerStop={setQuizDuration} resetTiming={resetTiming} />
       <CurrentQuestion />
       <ProgressBar />
-      <ButtonsMenu onShowFinishModal={handleShowFinishModal} />
+      <ButtonsMenu onShowFinishModal={handleShowFinishModal} onRestartTimer={handleRestartTimer} />
+
       <Modal
         isOpen={isFinishModalOpen}
-        onRequestClose={handleCloseFinishModal}
+        onRequestClose={() => handleCloseFinishModal(quizDuration)}
         contentLabel="Quiz Finish"
         className="modal"
         overlayClassName="overlay"
       >
         <div className="close-sticky">
-          <button onClick={handleCloseFinishModal} className="close-button">
+          <button onClick={() => handleCloseFinishModal(quizDuration)} className="close-button">
             Close
           </button>
         </div>
 
-        <QuizSummary />
+        <QuizSummary quizDuration={quizDuration} />
       </Modal>
     </div>
   );
