@@ -4,12 +4,13 @@ import { MdOutlineRestartAlt } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { goToNextQuestion, restart } from '../reducers/quiz';
 
-export const ButtonsMenu = ({ onShowFinishModal }) => {
+export const ButtonsMenu = ({ onShowFinishModal, onRestartTimer }) => {
   const dispatch = useDispatch();
   const quiz = useSelector((state) => state.quiz);
 
   const handleRestart = () => {
     dispatch(restart());
+    onRestartTimer(); 
   };
 
   const handleNext = () => {
@@ -17,7 +18,6 @@ export const ButtonsMenu = ({ onShowFinishModal }) => {
   };
 
   const handleFinish = () => {
-    // Additional actions or state changes before showing the modal
     onShowFinishModal();
   };
 

@@ -15,16 +15,6 @@ export const CurrentQuestion = () => {
   const quiz = useSelector((state) => state.quiz);
 
   const quizOver = useSelector((state) => state.quiz.quizOver);
-  //const TIMER = 3000;
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     console.log("restarting");
-  //     dispatch(restart());
-  //   }, TIMER);
-
-  //   return () => clearTimeout(timer);
-  // }, [dispatch, quizOver]);
 
   const answer = useSelector(
     (state) =>
@@ -33,7 +23,6 @@ export const CurrentQuestion = () => {
 
   const handleAnswerClick = (answerIndex, questionId) => {
     dispatch(submitAnswer({ answerIndex, questionId }));
-    // dispatch(goToNextQuestion());
   };
 
   const withImage = 'optionsImages' in question;
