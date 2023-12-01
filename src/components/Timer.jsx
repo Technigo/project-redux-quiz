@@ -1,29 +1,36 @@
-// Timer.js
 import { useState, useEffect } from 'react';
 
-const Timer = ({ onTimerStop, resetTiming }) => {
+const Timer = ({ onTimerStop, resetTiming, running }) => {
   const [seconds, setSeconds] = useState(0);
- let interval;
-
+  let interval;
 
   useEffect(() => {
-   
-    setSeconds(0);
-  
-    interval = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds + 1);
-    }, 1000);
-  
+    const startTimer = () => {
+      interval = setInterval(() => {
+        setSeconds((prevSeconds) => prevSeconds + 1);
+      }, 1000);
+    };
+
+    const stopTimer = () => {
+      clearInterval(interval);
+     
+      onTimerStop(seconds);
+    };
+
+    if (running) {
+      startTimer();
+    } else {
+      stopTimer();
+    }
+
     return () => {
       clearInterval(interval);
     };
-  }, [resetTiming]);
-  
+  }, [running, resetTiming, onTimerStop, seconds]);
 
   useEffect(() => {
     onTimerStop(seconds);
   }, [seconds, onTimerStop]);
-
 
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
@@ -38,4 +45,4 @@ const Timer = ({ onTimerStop, resetTiming }) => {
   );
 };
 
-export { Timer};
+export { Timer };
