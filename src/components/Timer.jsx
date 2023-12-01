@@ -1,7 +1,7 @@
 // Timer.js
 import { useState, useEffect } from 'react';
 
-const Timer = ({ onTimerStop, resetTiming, stopTimer }) => {
+const Timer = ({ onTimerStop, resetTiming }) => {
   const [seconds, setSeconds] = useState(0);
  let interval;
 
@@ -19,13 +19,10 @@ const Timer = ({ onTimerStop, resetTiming, stopTimer }) => {
     };
   }, [resetTiming]);
   
+
   useEffect(() => {
     onTimerStop(seconds);
-
-    if (stopTimer) {
-      clearInterval(interval); 
-    }
-  }, [seconds, onTimerStop, stopTimer]);
+  }, [seconds, onTimerStop]);
 
 
   const formatTime = (timeInSeconds) => {

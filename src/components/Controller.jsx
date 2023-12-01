@@ -7,15 +7,12 @@ import { Header } from "./Header";
 import ProgressBar from "./ProgressBar";
 import { QuizSummary } from "./QuizSummary";
 import {Timer} from "./Timer";
-import { stopTimer } from "../reducers/quiz"
 
 export const Controller = () => {
   const quiz = useSelector((state) => state.quiz);
   const [isFinishModalOpen, setFinishModalOpen] = useState(false);
   const [quizDuration, setQuizDuration] = useState(0);
   const [resetTiming, setResetTiming] = useState();
-  const [stopTimerFlag, setStopTimerFlag] = useState(false);
-  const dispatch = useDispatch();
 
   const handleShowFinishModal = () => {
     setFinishModalOpen(true);
@@ -29,21 +26,15 @@ export const Controller = () => {
   const handleRestartTimer = () => {
     setQuizDuration(0);
     setResetTiming((prev) => !prev);
-    setStopTimerFlag(false);
-  };
-
-  const onStopTimer = () => {
-    dispatch(stopTimer());
-    setStopTimerFlag(true);
   };
 
   return (
     <div className="controller-container">
       <Header />
-      <Timer onTimerStop={setQuizDuration} resetTiming={resetTiming} stopTimer={stopTimerFlag} />
+      <Timer onTimerStop={setQuizDuration} resetTiming={resetTiming} />
       <CurrentQuestion />
       <ProgressBar />
-      <ButtonsMenu onShowFinishModal={handleShowFinishModal} onRestartTimer={handleRestartTimer} onStopTimer={onStopTimer}  />
+      <ButtonsMenu onShowFinishModal={handleShowFinishModal} onRestartTimer={handleRestartTimer} />
 
       <Modal
         isOpen={isFinishModalOpen}
