@@ -4,7 +4,8 @@ const Timer = ({ onTimerStop, resetTiming, running }) => {
   const [seconds, setSeconds] = useState(0);
   let interval;
 
-  useEffect(() => {
+
+  useEffect(() => { 
     const startTimer = () => {
       interval = setInterval(() => {
         setSeconds((prevSeconds) => prevSeconds + 1);
@@ -13,7 +14,6 @@ const Timer = ({ onTimerStop, resetTiming, running }) => {
 
     const stopTimer = () => {
       clearInterval(interval);
-     
       onTimerStop(seconds);
     };
 
@@ -26,7 +26,13 @@ const Timer = ({ onTimerStop, resetTiming, running }) => {
     return () => {
       clearInterval(interval);
     };
-  }, [running, resetTiming, onTimerStop, seconds]);
+  }, [running, onTimerStop, seconds]);
+
+  useEffect(() => {
+    if (resetTiming) {
+      setSeconds(0);
+    }
+  }, [resetTiming]);
 
   useEffect(() => {
     onTimerStop(seconds);

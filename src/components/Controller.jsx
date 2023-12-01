@@ -11,7 +11,6 @@ import { Timer } from "./Timer";
 export const Controller = () => {
   const quiz = useSelector((state) => state.quiz);
   const [isFinishModalOpen, setFinishModalOpen] = useState(false);
-  const [quizDuration, setQuizDuration] = useState(0);
   const [resetTiming, setResetTiming] = useState();
   const [timerRunning, setTimerRunning] = useState(true);
   const [currentQuizDuration, setCurrentQuizDuration] = useState(0);
@@ -27,7 +26,6 @@ export const Controller = () => {
   };
 
   const handleRestartTimer = () => {
-    setQuizDuration(0);
     setResetTiming((prev) => !prev);
     setTimerRunning(true); 
   };
