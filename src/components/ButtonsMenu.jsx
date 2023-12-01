@@ -20,7 +20,7 @@ export const ButtonsMenu = ({ onShowFinishModal, onRestartTimer }) => {
   const handleFinish = () => {
     onShowFinishModal();
   };
-
+  
   return (
     <section className="quiz-buttons-container">
       <button className="btn" onClick={handleRestart}>

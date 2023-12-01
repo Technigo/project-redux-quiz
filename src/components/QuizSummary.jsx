@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import '../../src/index.css';
 import { useState } from 'react';
 
-export function QuizSummary() {
+export function QuizSummary({quizDuration}) {
   const [currentAnswerIndex, setCurrentAnswerIndex] = useState(0)
   const quiz = useSelector((state) => state.quiz);
   const answer = quiz.answers[currentAnswerIndex];
@@ -12,6 +12,7 @@ export function QuizSummary() {
       <div className="score-summary">
         <h2 className= 'TotalScore'>Total Score: {quiz.score}</h2> 
         <h3 className='resultScore'>{quiz.score < 20 ? "You Lose 🙁" : "You win 🥳"} </h3> 
+        <p className='quiz-duration'>Time Spent: {formatTime(quizDuration)}</p>
       </div>
       <h3>Quiz Summary</h3>
         <div className='summary-answers' key={answer.questionId}>
@@ -35,3 +36,10 @@ export function QuizSummary() {
     </section>
   );
 }
+
+
+const formatTime = (timeInSeconds) => {
+  const minutes = Math.floor(timeInSeconds / 60);
+  const remainingSeconds = timeInSeconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+};

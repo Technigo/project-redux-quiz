@@ -1,20 +1,18 @@
 import { useState } from "react";
 import Modal from "react-modal";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { ButtonsMenu } from "./ButtonsMenu";
 import { CurrentQuestion } from "./CurrentQuestion";
 import { Header } from "./Header";
 import ProgressBar from "./ProgressBar";
 import { QuizSummary } from "./QuizSummary";
-import {Timer} from "./Timer"
+import {Timer} from "./Timer";
 
 export const Controller = () => {
   const quiz = useSelector((state) => state.quiz);
   const [isFinishModalOpen, setFinishModalOpen] = useState(false);
   const [quizDuration, setQuizDuration] = useState(0);
   const [resetTiming, setResetTiming] = useState();
-
-  const isQuizOver = quiz.quizOver;
 
   const handleShowFinishModal = () => {
     setFinishModalOpen(true);

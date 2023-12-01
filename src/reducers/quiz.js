@@ -145,3 +145,7 @@ export const {submitAnswer, restart, goToNextQuestion, countQuestionsLeft} =
 quiz.actions;
 
 export default quiz.reducer;
+
+export const stopTimer = () => ({
+  type: "STOP_TIMER"
+});
